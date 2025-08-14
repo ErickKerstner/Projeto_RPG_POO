@@ -1,0 +1,20 @@
+npm i -y
+npm i -D ts-node prompt-sync @types/prompt-sync
+npm i typescript
+tsc --init
+npx tsc --init                                  comenta o verbatimModule
+git init
+ls -la                                          mostra arquivos ocultos
+git status
+git add                                         diz quais arquivos rastrear
+git add .                                       rastreia toodos
+
+
+
+
+
+
+
+
+-g = global
+npx = instalado no projeto
