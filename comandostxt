@@ -9,11 +9,10 @@ git status
 git add                                         diz quais arquivos rastrear
 git add .                                       rastreia toodos
 
-
-
-
-
-
+git commit                                      história do projeto (commit = enviar)
+    esc : wq!                                   w - salvar / q - quit / ! - força
+  
+descomenta outDir
 
 
 -g = global
