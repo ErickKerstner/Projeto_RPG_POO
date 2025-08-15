@@ -17,3 +17,14 @@ descomenta outDir
 
 -g = global
 npx = instalado no projeto
+
+git checkout XXXXXXX
+git checkout master
+
+ git log --oneline'                             mostra códigos
+
+ $ git branch -m main
+
+ $ npx tsc
+$ node dist/XXX
+npx ts-node main.ts
