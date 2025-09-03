@@ -1,0 +1,143 @@
+## Instalação de Dependências
+
+- `npm init -y`  
+  Inicializa um novo projeto Node.js com configurações padrão.
+
+
+
+- `npm install typescript`  
+  Instala o TypeScript no projeto.
+
+
+
+
+- `npm install -D ts-node prompt-sync @types/prompt-sync`  
+  Instala dependências de desenvolvimento: execução de TypeScript, entrada de dados e tipos.
+
+---
+
+## Configuração do TypeScript
+
+- `npx tsc --init`  
+  Cria o arquivo `tsconfig.json` para configurar o TypeScript.
+
+
+
+- (Opcional) No `tsconfig.json`, descomente e configure a opção `outDir` para definir a pasta de saída dos arquivos compilados.
+
+---
+
+## Comandos do TypeScript
+
+- `npx tsc`  
+  Compila os arquivos TypeScript para JavaScript.
+
+
+
+- `npx ts-node main.ts`  
+  Executa diretamente um arquivo TypeScript sem compilar.
+
+
+
+- `node dist/XXX.js`  
+  Executa o arquivo JavaScript compilado (ajuste o caminho conforme seu projeto).
+
+---
+
+## Git - Controle de Versão
+
+- `git init`  
+  Inicializa um repositório Git.
+
+
+
+- `git status`  
+  Mostra o status dos arquivos no repositório.
+
+
+
+- `git add .`  
+  Adiciona todos os arquivos para serem rastreados pelo Git.
+
+
+
+- `git add <arquivo>`  
+  Adiciona um arquivo específico para ser rastreado.
+
+
+
+- `git commit -m "mensagem"`  
+  Salva as alterações com uma mensagem descritiva.
+
+
+
+- `git log --oneline`  
+  Mostra o histórico de commits de forma resumida.
+
+
+
+- `git branch -m main`  
+  Renomeia a branch atual para "main".
+
+
+
+- `git checkout <hash ou branch>`  
+  Troca para um commit ou branch específico.
+
+
+
+- `git remote add origin <url>`  
+  Adiciona um repositório remoto.
+
+
+
+- `git push origin main`  
+  Envia as alterações para o repositório remoto.
+
+
+
+- `git clone <url>`  
+  Clona um repositório remoto.
+
+
+
+- `git pull`  
+  Atualiza o repositório local com as alterações do remoto.
+
+---
+
+## Comandos Úteis do Terminal
+
+- `ls -la`  
+  Lista todos os arquivos, incluindo ocultos.
+
+---
+
+## Dicas
+
+- `-g`  
+  Instalação global de pacotes npm.
+
+
+
+- `npx`  
+  Executa pacotes instalados localmente no projeto.
+
+---
+
+## Atalhos do Vim (usado em mensagens do Git)
+
+- `esc :wq!`  
+  Salva e sai do editor forçando a gravação.
+
+---
+
+## Comandos Adicionais Sugeridos
+
+- `npm run build`  
+  Executa o script de build definido no `package.json` (se configurado).
+
+
+
+- `npm start`  
+  Executa o script de start definido no `package.json` (se configurado).

@@ -1,6 +1,7 @@
 {
-  "name": "projetorpg",
+  "name": "poo20252n",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
   "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@types/prompt-sync": "^4.2.3",
     "prompt-sync": "^4.2.0",
     "ts-node": "^10.9.2"
