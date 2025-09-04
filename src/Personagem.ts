@@ -1,5 +1,5 @@
 import { Util } from "./Util";
-
+const util: Util = new Util();
 export class Personagem {
   nome: string;
   classe: string;
@@ -11,7 +11,7 @@ export class Personagem {
   vidaAtual: number;
   vidaMaxima: number;
   poderAtaque: number;
-
+  
   constructor(nome: string) {
     this.nome = nome;
     this.classe = "";
@@ -24,33 +24,36 @@ export class Personagem {
     this.vidaMaxima = 0;
     this.poderAtaque = 0;
   }
-
+  
   treinarPoderAtaque(): void {
     const incrementoDoTreino: number = Util.gerarNumeroAleatoria(5, 15);
     this.poderAtaque += incrementoDoTreino + this.poderAtaque * 1.1;
+    console.log(' ')
+    console.log("Poder de ataque aumentado para: " + this.poderAtaque)
+    console.log(' ')
   }
-
+  
   estaVivo() {
     return this.vidaAtual > 0;
   }
-
+  
   subirNivel(): void {
     this.nivel += 1;
     this.vidaMaxima += Util.gerarNumeroAleatoria(10, 20);
     this.manaMaxima += Util.gerarNumeroAleatoria(5, 15);
     this.vidaAtual = this.vidaMaxima;
     this.manaAtual = this.manaMaxima;
+    console.log(' ')
+    console.log(`${this.nome} subiu para o nível ${this.nivel}!`);
+    console.log(' ')
   }
-
-  regenerarMana(): void {
-    const manaRegenerada: number = Util.gerarNumeroAleatoria(
-      1,
-      this.manaMaxima * 0.3
-    );
-    this.manaAtual += manaRegenerada;
-    if (this.manaAtual > this.manaMaxima) {
-      this.manaAtual = this.manaMaxima;
-    }
+  
+  regenerar(): void {
+    this.manaAtual = this.manaMaxima
+    this.vidaAtual = this.vidaMaxima
+    console.log(' ')
+    console.log(`${this.nome} regenerou vida e mana!`);
+    console.log(' ')
   }
 
   equiparArma(arma: string, poderAtaque: number): void {
@@ -81,8 +84,14 @@ export class Personagem {
 
   atacarAlvo(alvo: Personagem): void {
 
-    console.log(this)
-    console.log(alvo)
+    alvo.manaMaxima = Math.round(this.manaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1.2));
+    alvo.manaAtual = Math.round(alvo.manaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1));
+    alvo.vidaMaxima = Math.round(this.vidaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1.2));
+    alvo.vidaAtual = Math.round(alvo.vidaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1));
+    alvo.poderAtaque = Math.round(this.poderAtaque * Util.gerarNumeroAleatoriaFloat(0.8, 1.2));
+
+    console.table(this)
+    console.table(alvo)
 
     // calcula quantos "pontos" este personagem tem a mais que o alvo em 3 atributos
     // cada expressão resulta em true/false; filter(Boolean).length conta os true
@@ -112,6 +121,10 @@ export class Personagem {
     if (this.vidaAtual === 0 || this.manaAtual === 0) {
       this.vidaAtual = 10;
       this.manaAtual = 10;
+    }
+    if (vencedor === alvo) {
+      this.vidaAtual = 0;
+      this.manaAtual = 0;
     }
   }
 }

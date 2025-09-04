@@ -6,6 +6,10 @@ export class Util {
         return minimo + Math.round(Math.random() * (maximo - minimo))
     }
 
+    static gerarNumeroAleatoriaFloat(minimo: number, maximo: number): number {
+        return Math.random() * (maximo - minimo) + minimo;
+    }
+
     static gerarNome(): string{
         const randomName = faker.person.firstName();
         return randomName;

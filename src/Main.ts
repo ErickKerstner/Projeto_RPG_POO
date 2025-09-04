@@ -18,13 +18,13 @@ p.poderAtaque = 1;
 const a = new Personagem("Angelo");
 a.classe = "Guerreiro";
 a.raca = "Humano";
-a.nivel = p.nivel * Util.gerarNumeroAleatoria(0.8, 1.2);
-a.arma = "Espada longa";
-a.manaMaxima = p.manaMaxima * Util.gerarNumeroAleatoria(0.8, 1.2);
-a.manaAtual = a.manaMaxima * Util.gerarNumeroAleatoria(0.6, 1);
-a.vidaMaxima = p.vidaMaxima * Util.gerarNumeroAleatoria(0.8, 1.2);
-a.vidaAtual = a.vidaMaxima * Util.gerarNumeroAleatoria(0.6, 1);
-a.poderAtaque = p.poderAtaque * Util.gerarNumeroAleatoria(0.8, 1.2);
+a.arma = "Espada";
+a.nivel = p.nivel * Math.floor(1 + Math.random() * 99);
+a.manaMaxima = 100
+a.manaAtual = a.manaMaxima
+a.vidaMaxima = 100
+a.vidaAtual = a.vidaMaxima
+a.poderAtaque = 1;
 
 while (true) {
 
@@ -33,7 +33,7 @@ while (true) {
     console.log("|2. Ver Status                 |");
     console.log("|3. Checar se personagem vive  |");
     console.log("|4. Subir de nível             |");
-    console.log("|5. Regenerar mana             |");
+    console.log("|5. Regenerar                  |");
     console.log("|6. Equipar arma               |");
     console.log("|7. Lançar feitiço             |");
     console.log("|8. Atacar alvo                |");
@@ -54,7 +54,6 @@ while (true) {
             break;
 
         case 2:
-
             console.log(' ')
             console.table(p);
             console.log(' ')
@@ -71,7 +70,7 @@ while (true) {
             break;
 
         case 5:
-            p.regenerarMana();
+            p.regenerar();
             break;
 
         case 6:
