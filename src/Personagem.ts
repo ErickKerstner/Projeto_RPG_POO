@@ -27,7 +27,7 @@ export class Personagem {
   
   treinarPoderAtaque(): void {
     const incrementoDoTreino: number = Util.gerarNumeroAleatoria(5, 15);
-    this.poderAtaque += incrementoDoTreino + this.poderAtaque * 1.1;
+    this.poderAtaque += Math.round(incrementoDoTreino + this.poderAtaque * 1.1);
     console.log(' ')
     console.log("Poder de ataque aumentado para: " + this.poderAtaque)
     console.log(' ')
