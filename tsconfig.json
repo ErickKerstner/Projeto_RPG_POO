@@ -3,17 +3,15 @@
   "compilerOptions": {
     // File Layout
     // "rootDir": "./src",
-     "outDir": "./dist",
+    "outDir": "dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    "module": "commonjs",
+    "target": "ES2019",
+    "types": ["jest", "node"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
 
     // Other Outputs
     "sourceMap": true,
@@ -39,6 +37,7 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"]
 }
