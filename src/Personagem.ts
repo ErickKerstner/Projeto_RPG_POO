@@ -1,31 +1,82 @@
 import { Util } from "./Util";
 const util: Util = new Util();
-export class Personagem {
-  nome: string;
-  classe: string;
-  raca: string;
-  nivel: number;
-  arma: string;
-  manaAtual: number;
-  manaMaxima: number;
-  vidaAtual: number;
-  vidaMaxima: number;
-  poderAtaque: number;
+
+export default class Personagem {
+  constructor(
+  private _nome: string,
+  private _classe: string,
+  private _raca: string,
+  private _nivel: number,
+  private _arma: string,
+  private _manaAtual: number = 0,
+  private _manaMaxima: number = 100,
+  private _vidaAtual: number = 100,
+  private _vidaMaxima: number = 100,
+  private _poderAtaque: number = 1,
+  ) {}
   
-  constructor(nome: string) {
-    this.nome = nome;
-    this.classe = "";
-    this.raca = "";
-    this.nivel = 0;
-    this.arma = "";
-    this.manaAtual = 0;
-    this.manaMaxima = 0;
-    this.vidaAtual = 0;
-    this.vidaMaxima = 0;
-    this.poderAtaque = 0;
+  public get nome(): string {
+    return this._nome;
+  }
+  public set nome(nome: string) {
+    this._nome = nome;
+  }
+  public get classe(): string {
+    return this._classe;
+  }
+  public set classe(classe: string) {
+    this._classe = classe;
+  }
+  public get raca(): string {
+    return this._raca;
+  }
+  public set raca(raca: string) {
+    this._raca = raca;
+  }
+  public get nivel(): number {
+    return this._nivel;
+  }
+  public set nivel(nivel: number) {
+    this._nivel = nivel;
+  }
+  public get arma(): string {
+    return this._arma;
+  }
+  public set arma(arma: string) {
+    this._arma = arma;
+  }
+  public get manaAtual(): number {
+    return this._manaAtual;
+  }
+  public set manaAtual(manaAtual: number) {
+    this._manaAtual = manaAtual;
+  }
+  public get manaMaxima(): number {
+    return this._manaMaxima;
+  }
+  public set manaMaxima(manaMaxima: number) {
+    this._manaMaxima = manaMaxima;
+  }
+  public get vidaAtual(): number {
+    return this._vidaAtual;
+  }
+  public set vidaAtual(vidaAtual: number) {
+    this._vidaAtual = vidaAtual;
+  }
+  public get vidaMaxima(): number {
+    return this._vidaMaxima;
+  }
+  public set vidaMaxima(vidaMaxima: number) {
+    this._vidaMaxima = vidaMaxima;
+  }
+  public get poderAtaque(): number {
+    return this._poderAtaque;
+  }
+  public set poderAtaque(poderAtaque: number) {
+    this._poderAtaque = poderAtaque;
   }
   
-  treinarPoderAtaque(): void {
+  public treinarPoderAtaque(): void {
     const incrementoDoTreino: number = Util.gerarNumeroAleatoria(5, 15);
     this.poderAtaque += Math.round(incrementoDoTreino + this.poderAtaque * 1.1);
     console.log(' ')
@@ -33,11 +84,11 @@ export class Personagem {
     console.log(' ')
   }
   
-  estaVivo() {
+  public estaVivo() {
     return this.vidaAtual > 0;
   }
   
-  subirNivel(): void {
+  public subirNivel(): void {
     this.nivel += 1;
     this.vidaMaxima += Util.gerarNumeroAleatoria(10, 20);
     this.manaMaxima += Util.gerarNumeroAleatoria(5, 15);
@@ -48,7 +99,7 @@ export class Personagem {
     console.log(' ')
   }
   
-  regenerar(): void {
+  public regenerar(): void {
     this.manaAtual = this.manaMaxima
     this.vidaAtual = this.vidaMaxima
     console.log(' ')
@@ -56,12 +107,12 @@ export class Personagem {
     console.log(' ')
   }
 
-  equiparArma(arma: string, poderAtaque: number): void {
+  public equiparArma(arma: string, poderAtaque: number): void {
     this.arma = arma;
     this.poderAtaque = poderAtaque;
   }
 
-  lancarFeitico(custoMana: number, dano: number): number {
+  public lancarFeitico(custoMana: number, dano: number): number {
     if (this.manaAtual >= custoMana) {
       this.manaAtual -= custoMana;
       return dano;
@@ -71,18 +122,18 @@ export class Personagem {
     }
   }
 
-  receberDano(): void {
+  public receberDano(): void {
     this.vidaAtual -= Util.gerarNumeroAleatoria(10, 20);
     if (this.vidaAtual < 0) {
       this.vidaAtual = 0;
     }
   }
-  atacar(): number {
+  public atacar(): number {
     const variacaoDano = Util.gerarNumeroAleatoria(-2, 2);
     return this.poderAtaque + variacaoDano;
   }
 
-  atacarAlvo(alvo: Personagem): void {
+  public atacarAlvo(alvo: Personagem): void {
 
     alvo.manaMaxima = Math.round(this.manaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1.2));
     alvo.manaAtual = Math.round(alvo.manaMaxima * Util.gerarNumeroAleatoriaFloat(0.8, 1));

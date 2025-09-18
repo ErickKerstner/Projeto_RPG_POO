@@ -1,30 +1,12 @@
-import { Personagem } from "./Personagem";
+import Personagem  from "./Personagem";
 import Prompt from "prompt-sync";
 import { Util } from "./Util";
 
 const teclado = Prompt();
 
-const p = new Personagem("Edécio");
-p.classe = "Monge";
-p.raca = "Morto-vivo";
-p.nivel = Math.floor(1 + Math.random() * 99);
-p.arma = "Cajado";
-p.manaMaxima = 100;
-p.manaAtual = p.manaMaxima;
-p.vidaMaxima = 100;
-p.vidaAtual = p.vidaMaxima;
-p.poderAtaque = 1;
+const p: Personagem = new Personagem("Edécio", "Monge", "Morto-vivo", Math.floor(1 + Math.random() * 99), "Cajado", 100);
 
-const a = new Personagem("Angelo");
-a.classe = "Guerreiro";
-a.raca = "Humano";
-a.arma = "Espada";
-a.nivel = p.nivel * Math.floor(1 + Math.random() * 99);
-a.manaMaxima = 100
-a.manaAtual = a.manaMaxima
-a.vidaMaxima = 100
-a.vidaAtual = a.vidaMaxima
-a.poderAtaque = 1;
+const a: Personagem = new Personagem("Angelo", "Guerreiro", "Humano", Math.floor(1 + Math.random() * 99), "Espada", 100);
 
 while (true) {
 
