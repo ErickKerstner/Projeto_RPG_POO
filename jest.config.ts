@@ -5,6 +5,15 @@ const config: Config = {
   testEnvironment: 'node',
   roots: ['<rootDir>/src'],
   testMatch: ['**/?(*.)+(spec|test).ts'],
-  injectGlobals: true
+  injectGlobals: true,
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
+  extensionsToTreatAsEsm: [".ts"],
+  globals: {
+    "ts-jest": {
+      useESM: true,
+    },
+  },
 };
 export default config;
