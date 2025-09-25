@@ -20,7 +20,7 @@ describe("Quando manipular item", () => {
 
         expect(precoFinal).toBe(PRECO_DEFINIDO);
 
-    })
+    });
 
     test("Deve aplicar um desconto e calcular o preço final corretamente",() => {
        const it = new Item();

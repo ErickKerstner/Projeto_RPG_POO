@@ -28,7 +28,6 @@ export class Pedido{
     adicionarItem(item: Item){
         this.itens.push(item);
         this.atualizarValorPagar();
-
     }
 
     obterCliente(): Cliente{
